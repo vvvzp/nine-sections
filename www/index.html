@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Prototype</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+    <ion-pane>
+      <ion-content>
+        <div class="container">
+          <div class="row fl">
+            <div class="col-20" on-tap="openModal(0)">{{names[0]}}<br>{{page[0].desc}}<br>{{page[0].text}} </div>
+            <div class="col-20 row responsive-lg">
+              <div class="col vert-col" on-tap="openModal(1)">{{names[1]}}<br>{{page[1].desc}}<br>{{page[1].text}}</div>
+              <div class="col vert-col" on-tap="openModal(2)">{{names[2]}}<br>{{page[2].desc}}<br>{{page[2].text}}</div>
+            </div>
+            <div class="col-20" on-tap="openModal(3)">{{names[3]}}<br>{{page[3].desc}}<br>{{page[3].text}}</div>
+            <div class="col-20 row responsive-lg">
+              <div class="col vert-col" on-tap="openModal(4)">{{names[4]}}<br>{{page[4].desc}}<br>{{page[4].text}}</div>
+              <div class="col vert-col" on-tap="openModal(5)">{{names[5]}}<br>{{page[5].desc}}<br>{{page[5].text}}</div>
+            </div>
+            <div class="col-20" on-tap="openModal(6)">{{names[6]}}<br>{{page[6].desc}}<br>{{page[6].text}}</div>
+          </div>
+          <div class="row fl">
+            <div class="col-50" on-tap="openModal(7)">{{names[7]}}<br>{{page[7].desc}}<br>{{page[7].text}}</div>
+            <div class="col-50" on-tap="openModal(8)">{{names[8]}}<br>{{page[8].desc}}<br>{{page[8].text}}</div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-pane>
+  </body>
+  <script id="modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar on-tap="closeModal()">
+        <h1 class="title">{{names[val]}}</h1>
+        <button class="button button-assertive" on-tap="closeModal()">Close</button>
+      </ion-header-bar>
+      <ion-content>
+        <ul class="list">
+          <li class="item">Description: <input ng-model="page[val].desc"></li>
+          <li class="item">Text: <input ng-model="page[val].text"></li>
+        </ul>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+</html>
